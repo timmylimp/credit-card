@@ -48,11 +48,21 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CreditCard.Entities\CreditCard.Entities.csproj">
+      <Project>{c18df7dd-afe0-4ddf-9ed5-57ea518dff83}</Project>
+      <Name>CreditCard.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CreditCard.RestAPI\CreditCard.RestAPI.csproj">
+      <Project>{169f612b-c2d9-4123-a826-1fe9467d6152}</Project>
+      <Name>CreditCard.RestAPI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
