@@ -189,10 +189,16 @@
     <Compile Include="DataContext\CreditCardMigrations\201807101440031_Initial Create.Designer.cs">
       <DependentUpon>201807101440031_Initial Create.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContext\CreditCardMigrations\201807101554122_Add Expiry Date.cs" />
+    <Compile Include="DataContext\CreditCardMigrations\201807101554122_Add Expiry Date.Designer.cs">
+      <DependentUpon>201807101554122_Add Expiry Date.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContext\CreditCardMigrations\Configuration.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ValidateResultViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -249,7 +255,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -275,6 +280,9 @@
   <ItemGroup>
     <EmbeddedResource Include="DataContext\CreditCardMigrations\201807101440031_Initial Create.resx">
       <DependentUpon>201807101440031_Initial Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContext\CreditCardMigrations\201807101554122_Add Expiry Date.resx">
+      <DependentUpon>201807101554122_Add Expiry Date.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
