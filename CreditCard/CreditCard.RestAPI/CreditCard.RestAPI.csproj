@@ -193,6 +193,10 @@
     <Compile Include="DataContext\CreditCardMigrations\201807101554122_Add Expiry Date.Designer.cs">
       <DependentUpon>201807101554122_Add Expiry Date.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContext\CreditCardMigrations\201807101628054_Add Check Card Store Procedure.cs" />
+    <Compile Include="DataContext\CreditCardMigrations\201807101628054_Add Check Card Store Procedure.Designer.cs">
+      <DependentUpon>201807101628054_Add Check Card Store Procedure.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContext\CreditCardMigrations\Configuration.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -283,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContext\CreditCardMigrations\201807101554122_Add Expiry Date.resx">
       <DependentUpon>201807101554122_Add Expiry Date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContext\CreditCardMigrations\201807101628054_Add Check Card Store Procedure.resx">
+      <DependentUpon>201807101628054_Add Check Card Store Procedure.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
