@@ -183,7 +183,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\CardController.cs" />
     <Compile Include="DataContext\CreditCardDb.cs" />
     <Compile Include="DataContext\CreditCardMigrations\201807101440031_Initial Create.cs" />
     <Compile Include="DataContext\CreditCardMigrations\201807101440031_Initial Create.Designer.cs">
