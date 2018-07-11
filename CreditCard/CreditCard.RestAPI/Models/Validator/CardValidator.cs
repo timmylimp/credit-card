@@ -40,7 +40,7 @@ namespace CreditCard.RestAPI.Models.Validator
             var result = new ValidateResultViewModel() { CardType = CardType, Result = Result.Invalid };
 
             int cardYear = 0;
-            if (Int32.TryParse(Card.ExpiryDate.Substring(2), out cardYear))
+            if (!Int32.TryParse(Card.ExpiryDate.Substring(2), out cardYear))
                 return result;
             
             if (result.CardType == CardType.Visa && DateTime.IsLeapYear(cardYear))
@@ -49,19 +49,6 @@ namespace CreditCard.RestAPI.Models.Validator
                 result.Result = Result.Valid;
             else if (result.CardType == CardType.JCB)
                 result.Result = Result.Valid;
-
-            if (result.Result == Result.Invalid)
-                return result;
-
-            using (var db = new CreditCardDb())
-            {
-                var _searchCard = db.Cards
-                                    .Where(p => p.CardNumber == Card.CardNumber && p.ExpiryDate == Card.ExpiryDate)
-                                    .Take(1)
-                                    .ToList();
-                if (_searchCard.Count <= 0)
-                    result.Result = Result.DoesNotExist;
-            }
 
             return result;
         }
