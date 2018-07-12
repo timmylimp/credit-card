@@ -10,7 +10,7 @@ namespace CreditCard.CardModule.DataContext
 
         public DbSet<Card> Cards { get; set; }
 
-        public void Seed()
+        public void EnsureSeed()
         {
             if (!Cards.Any())
             {

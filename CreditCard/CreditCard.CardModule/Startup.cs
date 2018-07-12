@@ -40,7 +40,6 @@ namespace CreditCard.CardModule
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                db.Seed();
             }
             else
             {
@@ -49,6 +48,8 @@ namespace CreditCard.CardModule
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            db.Database.EnsureCreated();
+            db.EnsureSeed();
         }
     }
 }
