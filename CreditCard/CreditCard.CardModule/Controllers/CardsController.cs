@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using CreditCard.CardModule.DataContext;
 using CreditCard.CardModule.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using CreditCard.CardModule.Models.Validator;
 using CreditCard.CardModule.Extensions;
+using Microsoft.EntityFrameworkCore;
 
 namespace CreditCard.CardModule.Controllers
 {
@@ -90,8 +90,18 @@ namespace CreditCard.CardModule.Controllers
 
             if (result.Result == Result.Valid)
             {
-                if (!db.Cards.Any(p => p.CardNumber == card.CardNumber && p.ExpiryDate == card.ExpiryDate))
+                // This use SP_CHECK_CREDIT_CARD to check card exists in database
+                var searchResult = db.Cards.FromSql("dbo.SP_CHECK_CREDIT_CARD @CardNumber={0}, @ExpiryDate={1}",
+                                                        card.CardNumber,
+                                                        card.ExpiryDate)
+                                           .AsNoTracking()
+                                           .ToList();
+                if (searchResult.Count <= 0)
                     result.Result = Result.DoesNotExist;
+
+                // This use LINQ to check card exists in database
+                //if (!db.Cards.Any(p => p.CardNumber == card.CardNumber && p.ExpiryDate == card.ExpiryDate))
+                //    result.Result = Result.DoesNotExist;
             }
             return Ok(new { result = result.Result.ToFriendlyString(), cardType = result.CardType.ToFriendlyString() });
         }

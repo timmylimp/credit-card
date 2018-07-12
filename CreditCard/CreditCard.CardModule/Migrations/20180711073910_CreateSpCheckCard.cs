@@ -12,18 +12,14 @@ IF OBJECT_ID('dbo.SP_CHECK_CREDIT_CARD ', 'P') IS NOT NULL
 GO
 CREATE PROCEDURE dbo.SP_CHECK_CREDIT_CARD 
 	@CardNumber nvarchar(16), 
-	@ExpiryDate nvarchar(6),
-	@Found int OUTPUT
+	@ExpiryDate nvarchar(6)
 AS
 BEGIN
 	SET NOCOUNT ON;
 
-	SELECT @Found = COUNT(*) FROM
-	(
-		SELECT TOP(1) *
-		FROM [dbo].[Cards]
-		WHERE CardNumber = @CardNumber AND ExpiryDate = @ExpiryDate
-	) AS Found
+	SELECT TOP(1) *
+	FROM [dbo].[Cards]
+	WHERE CardNumber = @CardNumber AND ExpiryDate = @ExpiryDate
 END
 GO
 "
