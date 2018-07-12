@@ -20,12 +20,19 @@ namespace CreditCard.CardModule.Controllers
         public CardsController(CreditCardDb db) { this.db = db; }
 
         [HttpGet]
-        public IEnumerable<Card> Get()
+        public IEnumerable<Card> Get(int? pageNumber, int? pageSize, string search="")
         {
-            return db.Cards;
+            int _pageNumber = pageNumber ?? 1;
+            int _pageSize = pageSize ?? 5;
+
+            return db.Cards.OrderBy(p => p.Id)
+                           .Where(p=>p.CardNumber.Contains(search))
+                           .Skip((_pageNumber - 1) * _pageSize)
+                           .Take(_pageSize)
+                           .ToList();
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name ="Get")]
         public IActionResult Get(int id)
         {
             var result = db.Cards.SingleOrDefault(b => b.Id == id);
@@ -95,8 +102,9 @@ namespace CreditCard.CardModule.Controllers
                                                         card.CardNumber,
                                                         card.ExpiryDate)
                                            .AsNoTracking()
-                                           .ToList();
-                if (searchResult.Count <= 0)
+                                           .SingleOrDefault();
+
+                if (searchResult == null)
                     result.Result = Result.DoesNotExist;
 
                 // This use LINQ to check card exists in database
