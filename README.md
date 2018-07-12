@@ -1,14 +1,14 @@
 # credit-card
-Software Architect technical assignment
-Description
-Implement a service to provide a credit card number validation and return a result which contains
-validation result and card type
-Use best practices and design patterns to build testable and maintainable software.
-Domain
-<h3>Card</h3>
+<h1>Software Architect technical assignment</h1>
+<h2>Description</h2>
+<p>Implement a service to provide a credit card number validation and return a result which contains
+validation result and card type</p>
+<p>Use best practices and design patterns to build testable and maintainable software.
+Domain</p>
+<h2>Card</h2>
 1. Card Number (Numeric 15 or 16 digits)
-2. Expiry date (MMYYYY)
-Validate Result
+1. Expiry date (MMYYYY)
+<h2>Validate Result</h2>
 1. Result (Valid, Invalid, Does not exist)
 2. Card Type (Visa, Master, Amex, JCB or Unknown)
 Validation Rule
