@@ -19,7 +19,8 @@ namespace CreditCard.CardModule.DataContext
                     new Card { CardNumber = "5111111111111111", ExpiryDate = "022027" }, // MasterCard
                     new Card { CardNumber = "311111111111111",  ExpiryDate = "032028" }, // Amex
                     new Card { CardNumber = "3222222222222222", ExpiryDate = "042029" }, // JCB
-                    new Card { CardNumber = "6111111111111111", ExpiryDate = "052030" }  // Unknown
+                    new Card { CardNumber = "6111111111111111", ExpiryDate = "052030" },  // Unknown
+                    new Card { CardNumber = "5222222222222222", ExpiryDate = "052030" }  // MasterCard
                 };
                 Cards.AddRange(cards);
                 SaveChanges();
